@@ -5,185 +5,115 @@
  * Date: 3/14/15
  * Time: 5:16 PM
  */
+$pg = 'main';
+if (isset($_GET['page'])) {
+
+    if ($_GET['page'] == '') {
+
+        $pg = $_GET['page'];
+
+    } else {
+
+        $pg = $_GET['page'];
+
+    }//end else
+}//end if
+require('model/mysqli_connect.php'); // Connect to the db.
+
+echo $_GET['username'];
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Business Casual - Start Bootstrap Theme</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="../startbootstrap-business-casual-1.0.2/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="../startbootstrap-business-casual-1.0.2/css/business-casual.css" rel="stylesheet">
-
-    <!-- Fonts -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
+<?php include 'content/header.php'; ?>
 <body>
-
-<div class="brand">Business Casual</div>
-<div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>
-
-<!-- Navigation -->
-<nav class="navbar navbar-default" role="navigation">
+<?php include 'content/menuright.php'; ?>
+<div class="main">
     <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-            <a class="navbar-brand" href="index.html">Business Casual</a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-                <li>
-                    <a href="about.html">About</a>
-                </li>
-                <li>
-                    <a href="blog.html">Blog</a>
-                </li>
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
-
-<div class="container">
-
-    <div class="row">
-        <div class="box">
-            <div class="col-lg-12 text-center">
-                <div id="carousel-example-generic" class="carousel slide">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators hidden-xs">
-                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                    </ol>
-
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <img class="img-responsive img-full" src="../startbootstrap-business-casual-1.0.2/img/slide-1.jpg" alt="">
-                        </div>
-                        <div class="item">
-                            <img class="img-responsive img-full" src="../startbootstrap-business-casual-1.0.2/img/slide-2.jpg" alt="">
-                        </div>
-                        <div class="item">
-                            <img class="img-responsive img-full" src="../startbootstrap-business-casual-1.0.2/img/slide-3.jpg" alt="">
-                        </div>
-                    </div>
-
-                    <!-- Controls -->
-                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                        <span class="icon-prev"></span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                        <span class="icon-next"></span>
-                    </a>
+        <!-- Jumbotron Header -->
+        <div class="jumbotron box">
+            <div class="mainnavi">
+                <?php include 'content/mainnavi.php'; ?>
                 </div>
-                <h2 class="brand-before">
-                    <small>Welcome to</small>
-                </h2>
-                <h1 class="brand-name">Business Casual</h1>
-                <hr class="tagline-divider">
-                <h2>
-                    <small>By
-                        <strong>Start Bootstrap</strong>
-                    </small>
-                </h2>
+            <!-- main content  -->
+            <div class="maincontent vertical-offset-100">
+                <?php include('content/' . $pg . '.php'); ?>
             </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="box">
-            <div class="col-lg-12">
-                <hr>
-                <h2 class="intro-text text-center">Build a website
-                    <strong>worth visiting</strong>
-                </h2>
-                <hr>
-                <img class="img-responsive img-border img-left" src="../startbootstrap-business-casual-1.0.2/img/intro-pic.jpg" alt="">
-                <hr class="visible-xs">
-                <p>The boxes used in this template are nested inbetween a normal Bootstrap row and the start of your column layout. The boxes will be full-width boxes, so if you want to make them smaller then you will need to customize.</p>
-                <p>A huge thanks to <a href="http://join.deathtothestockphoto.com/" target="_blank">Death to the Stock Photo</a> for allowing us to use the beautiful photos that make this template really come to life. When using this template, make sure your photos are decent. Also make sure that the file size on your photos is kept to a minumum to keep load times to a minimum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
             </div>
+        <!-- Content Here -->
         </div>
-    </div>
-
-    <div class="row">
-        <div class="box">
-            <div class="col-lg-12">
-                <hr>
-                <h2 class="intro-text text-center">Beautiful boxes
-                    <strong>to showcase your content</strong>
-                </h2>
-                <hr>
-                <p>Use as many boxes as you like, and put anything you want in them! They are great for just about anything, the sky's the limit!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-            </div>
+    <!-- footer -->
+    <div class="footer">
+        <?php include 'content/footer.php'; ?>
         </div>
-    </div>
-
 </div>
-<!-- /.container -->
-
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <p>Copyright &copy; Your Website 2014</p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- jQuery -->
-<script src="../startbootstrap-business-casual-1.0.2/js/jquery.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="../startbootstrap-business-casual-1.0.2/js/bootstrap.min.js"></script>
-
-<!-- Script to Activate the Carousel -->
-<script>
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
-</script>
-
 </body>
+<!-- jQuery -->
+<script src="js/jquery-2.1.3.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Script to Activate the Carousel -->
+<script src="/js/indexpg.js"></script>
+<script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
+<script>
+    $(document).ready(function () {
+        //Events that reset and restart the timer animation when the slides change
+        $("#transition-timer-carousel").on("slide.bs.carousel", function (event) {
+            //The animate class gets removed so that it jumps straight back to 0%
+            $(".transition-timer-carousel-progress-bar", this)
+                .removeClass("animate").css("width", "0%");
+        }).on("slid.bs.carousel", function (event) {
+            //The slide transition finished, so re-add the animate class so that
+            //the timer bar takes time to fill up
+            $(".transition-timer-carousel-progress-bar", this)
+                .addClass("animate").css("width", "100%");
+        });
 
+        //Kick off the initial slide animation when the document is ready
+        $(".transition-timer-carousel-progress-bar", "#transition-timer-carousel")
+            .css("width", "100%");
+    });
+    $('.dropdown-toggle').click(function () {
+        var location = $(this).attr('href');
+        window.location.href = location;
+        return false;
+    });
+    function htmlbodyHeightUpdate() {
+        var height3 = $(window).height();
+        var height1 = $('.nav').height() + 50;
+        height2 = $('.main').height();
+        if (height2 > height3) {
+            $('html').height(Math.max(height1, height3, height2) + 10);
+            $('body').height(Math.max(height1, height3, height2) + 10);
+        }
+        else {
+            $('html').height(Math.max(height1, height3, height2));
+            $('body').height(Math.max(height1, height3, height2));
+        }
+
+    }
+    $(document).ready(function () {
+        htmlbodyHeightUpdate();
+        $(window).resize(function () {
+            htmlbodyHeightUpdate()
+        });
+        $(window).scroll(function () {
+            height2 = $('.main').height();
+            htmlbodyHeightUpdate()
+        });
+    });
+    $(document).ready(function () {
+        $(document).mousemove(function (e) {
+            TweenLite.to($('body'),
+                .5,
+                {
+                    css: {
+                        backgroundPosition: "" + parseInt(event.pageX / 8) + "px " + parseInt(event.pageY / '12') + "px, " + parseInt(event.pageX / '15') + "px " + parseInt(event.pageY / '15') + "px, " + parseInt(event.pageX / '30') + "px " + parseInt(event.pageY / '30') + "px"
+                    }
+                });
+        });
+    });
+</script>
 </html>
